@@ -1,0 +1,39 @@
+<section class="hero is-fullheight is-success">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">Angular Directive</h1>
+      <h2 class="subtitle">
+        </h2>
+
+        <ul>
+          <li *ngFor = "let post of postArray"> {{ post }} </li>
+        </ul>
+
+        </div>
+    </div>
+        <div class="container has-text-centered">
+          <h1 class="title">Angular Directive - Object Array Example</h1>
+          <h2 class="subtitle">
+            </h2>
+
+            <ul>
+              <li *ngFor = "let obj of objArray; let i = index">
+                {{obj.id}}: {{ obj.title }}: {{ obj.content }}
+                  <button class="button is-small is-warning" (click) = "deleteObj(i)">
+                        <span>Delete</span>
+                        <span class="icon is-small">
+                        <i class="fas fa-times"></i>
+                        </span>
+                    </button>
+              </li>
+            </ul>
+        </div>
+
+        <div class="container has-text-centered">
+
+            <h1>Button to add to the array</h1>
+            <button class="button is-info" (click) = "addNew()">Add new Data</button>
+
+        </div>
+    
+</section>

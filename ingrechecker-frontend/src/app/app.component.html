@@ -2,13 +2,75 @@
   <app-navbar></app-navbar>
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title">
+      <h1 [class.has-text-danger]="bool" class="title">
         Welcome to IngreChecker
       </h1>
+      <h2 class="subtitle">{{ message2 }}</h2>
       <h2 class="subtitle">
         {{ message }}
       </h2>
       <button class="button is-link" (click)="refreshMessage()">Refresh Message</button>
     </div>
+    <div class="container has-text-centered">
+      
+      <img [src]="imageUrl" alt="Robot with Magnifier" />
+      
+    </div>
+    <button (click)="buttonClick()" class="button" > Event binding</button>
   </div>
 </section>
+
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">Event Binding Example - Keyup Event</h1>
+      <h2 class="subtitle">Type something in the input box below:</h2>
+    </div>
+
+    <div class="container">
+      <div class="field">
+        <label class="label">Title Name</label>
+        <div class="control">
+          <input type="text" [(ngModel)]="titleName" (keyup.enter)="onKeyup()" class="input is-info" placeholder="Title">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Post Content</label>
+        <div class="control">
+          <textarea [(ngModel)]="postContent" (keyup.enter)="onKeyup()" class="textarea is-success" placeholder="Write your post..."></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Image URL</label>
+        <div class="control">
+          <input type="text" [(ngModel)]="imageLink" (keyup.enter)="onKeyup()" class="input is-success" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">External Link</label>
+        <div class="control">
+          <input type="text" [(ngModel)]="externalLink" (keyup.enter)="onKeyup()" class="input is-success" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="checkbox">
+          <input type="checkbox" [(ngModel)]="addStyle" />
+          Add warning background to external link
+        </label>
+      </div>
+
+      <div class="field has-text-centered mt-5">
+        <h1 class="title">{{ titleName }}</h1>
+        <img [src]="imageLink" alt="image link" />
+        <p class="is-primary">{{ postContent }}</p>
+        <p [class.has-background-warning]="addStyle"><a [href]="externalLink" target="_blank" [style.display] = "externalLink ? 'block' : 'none' "> view more </a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<app-body></app-body>
+
